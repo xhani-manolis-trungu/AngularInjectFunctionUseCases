@@ -1,0 +1,1 @@
+export { postSearchString } from './postSearch';

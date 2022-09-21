@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import {
   Component,
   inject,
@@ -6,8 +5,7 @@ import {
   OnInit,
   VERSION,
 } from '@angular/core';
-import { first } from 'rxjs';
-import { ProductService } from './product.service';
+import { customLoggerFactory, setSearch } from './factories';
 
 interface ILogger {
   log: (value: string) => void;
@@ -47,25 +45,11 @@ export const SET_SEARCH_TOKEN = new InjectionToken<ISetSearch>(
     {
       // Using Custom Injection Token with Inject function utilized
       provide: LOGGER_TOKEN,
-      useFactory: () => {
-        const productService = inject(ProductService);
-        return {
-          log: (value?: string) => {
-            productService.post(value).pipe(first()).subscribe();
-          },
-        };
-      },
+      useFactory: customLoggerFactory,
     },
     {
       provide: SET_SEARCH_TOKEN,
-      useFactory: () => {
-        const productService = inject(ProductService);
-        return {
-          setSearch: (value: string) => {
-            productService.post(value).pipe(first()).subscribe();
-          },
-        };
-      },
+      useFactory: setSearch,
     },
   ],
 })

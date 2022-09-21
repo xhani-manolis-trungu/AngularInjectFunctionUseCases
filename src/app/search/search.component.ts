@@ -1,13 +1,5 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { Store } from '@ngxs/store';
-import { SetSearch } from '../state/app.actions';
-import { Observable } from 'rxjs';
-
-export const postSearchString = (): ((value: string) => Observable<any>) => {
-  const store = inject(Store);
-
-  return (value: string) => store.dispatch(new SetSearch(value));
-};
+import { Component, OnInit } from '@angular/core';
+import { postSearchString } from '../searchRESTMethods';
 
 @Component({
   selector: 'app-search',
