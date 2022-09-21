@@ -1,5 +1,4 @@
-import { HttpClient } from '@angular/common/http';
-import { inject, Inject } from '@angular/core';
+import { Inject } from '@angular/core';
 import { BaseHttpService } from './base-http.service';
 
 @Inject({
