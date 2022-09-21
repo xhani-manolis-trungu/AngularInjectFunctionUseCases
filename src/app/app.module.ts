@@ -10,6 +10,7 @@ import { NgxsModule } from '@ngxs/store';
 import { NgxsLoggerPlugin } from '@ngxs/logger-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { AppState, AppStateModel } from './state/app.state';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { AppState, AppStateModel } from './state/app.state';
     NgxsModule.forRoot([AppState]),
     NgxsLoggerPluginModule.forRoot({ disabled: false }),
   ],
-  declarations: [AppComponent, HelloComponent],
+  declarations: [AppComponent, HelloComponent, SearchComponent],
   bootstrap: [AppComponent],
   providers: [ProductService],
 })
