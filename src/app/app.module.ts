@@ -11,15 +11,21 @@ import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { AppState } from './state/app.state';
 import { SearchComponent } from './search/search.component';
 import { UsersComponent } from './users/users.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeModule } from './feature/home/home.module';
+import { AngularMaterialModule } from './AngularMaterial/angular-material.module';
 
 @NgModule({
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
     HttpClientModule,
     NgxsModule.forRoot([AppState]),
     NgxsLoggerPluginModule.forRoot({ disabled: false }),
     UsersComponent,
+    HomeModule,
+    AngularMaterialModule
   ],
   declarations: [AppComponent, HelloComponent, SearchComponent],
   bootstrap: [AppComponent],
