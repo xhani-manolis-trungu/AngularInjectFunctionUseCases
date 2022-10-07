@@ -26,7 +26,7 @@ export interface UserForm
 export class UsersComponent implements OnInit {
   // username: FormControl<number> = new FormControl<number>(1);
 
-  // instead of having the form type all inside our class 
+  // instead of having the form type all inside our class
   // form!: FormGroup<{
   //   username: FormControl<string>;
   //   firstName: FormControl<string>;
@@ -53,10 +53,10 @@ export class UsersComponent implements OnInit {
 
   loadFromHttp() {
     this.form.patchValue({
-      username: 'test',
-      lastName: 'last test',
-      firstName: 'last',
-      age: 100,
+      username: 'Robert',
+      lastName: 'Smith',
+      firstName: 'RobSmith',
+      age: 60,
     });
   }
 
