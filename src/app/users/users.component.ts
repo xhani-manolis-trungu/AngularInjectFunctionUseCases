@@ -51,6 +51,7 @@ export class UsersComponent implements OnInit {
     // this.username.patchValue(1);
   }
 
+  // When hovering on each property you will see the type declared.
   loadFromHttp() {
     this.form.patchValue({
       username: 'Robert',
