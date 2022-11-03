@@ -28,7 +28,7 @@ const routes: Routes = [
   /**
    * Use cases to utilize Providers in Angular Route.
    *
-   * 1. When there is a new API coming out, and we just want to try it in a small portion of the application. 
+   * 1. When there is a new API coming out, and we just want to try it in a small portion of the application.
    *
    */
 ];

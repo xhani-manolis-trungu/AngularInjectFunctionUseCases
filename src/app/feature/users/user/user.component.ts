@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, pluck, switchMap } from 'rxjs';
+import { map, Observable, pluck, switchMap } from 'rxjs';
 import { UserLoaderService } from '../user-loader.service';
 import { User } from '../users-container/users.model';
 
@@ -19,7 +19,7 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.user$ = this.activatedRoute.params.pipe(
-      pluck('id'),
+      map(x => x['id']),
       switchMap((id) => this.userLoader.loadUser(id))
     );
   }

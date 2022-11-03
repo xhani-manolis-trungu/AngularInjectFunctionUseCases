@@ -10,10 +10,12 @@ export class UserLoaderService implements UserLoader {
   constructor(private http: HttpClient) {}
 
   loadUsers() {
+    console.log(`load users now...`);
     return this.http.get<User[]>(`https://jsonplaceholder.typicode.com/users`);
   }
 
   loadUser(id: number | string) {
+    console.log(`load user now...`);
     return this.http.get<User>(
       `https://jsonplaceholder.typicode.com/users/${id}`
     );
