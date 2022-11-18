@@ -20,8 +20,6 @@ export interface UserForm
   selector: 'app-users',
   templateUrl: 'users.component.html',
   styleUrls: ['users.component.css'],
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, AngularMaterialModule],
 })
 export class UsersComponent implements OnInit {
   // username: FormControl<number> = new FormControl<number>(1);

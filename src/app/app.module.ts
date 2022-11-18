@@ -14,20 +14,21 @@ import { UsersComponent } from './users/users.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './feature/home/home.module';
 import { AngularMaterialModule } from './AngularMaterial/angular-material.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CoreModule,
     FormsModule,
-    HttpClientModule,
+    ReactiveFormsModule,
     NgxsModule.forRoot([AppState]),
     NgxsLoggerPluginModule.forRoot({ disabled: false }),
-    UsersComponent,
     HomeModule,
-    AngularMaterialModule
+    AngularMaterialModule,
   ],
-  declarations: [AppComponent, HelloComponent, SearchComponent],
+  declarations: [AppComponent, HelloComponent, SearchComponent, UsersComponent],
   bootstrap: [AppComponent],
   providers: [ProductService],
 })
