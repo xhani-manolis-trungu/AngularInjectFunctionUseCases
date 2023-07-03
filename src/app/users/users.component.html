@@ -21,6 +21,11 @@
   {{ form.value | json }}
 </div>
 
+<ng-container *ngIf="selection">
+  <span>{{selection?naming}}</span>
+</ng-container>
+
+
 <button mat-raised-button color="primary" (click)="loadFromHttp()">
   Load data
 </button>

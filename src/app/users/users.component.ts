@@ -1,65 +1,32 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-} from '@angular/forms';
-import { AngularMaterialModule } from '../AngularMaterial/angular-material.module';
+<div class="container">
+  <form [formGroup]="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="firstName" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="lastName" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="age" />
+    </mat-form-field>
+  </form>
 
-export interface UserForm
-  extends FormGroup<{
-    username: FormControl<string>;
-    firstName: FormControl<string>;
-    lastName: FormControl<string>;
-    age: FormControl<number | null>;
-  }> {}
+  {{ form.value | json }}
+</div>
 
-@Component({
-  selector: 'app-users',
-  templateUrl: 'users.component.html',
-  styleUrls: ['users.component.css'],
-})
-export class UsersComponent implements OnInit {
-  // username: FormControl<number> = new FormControl<number>(1);
+<ng-container *ngIf="selection">
+  <div>{{selection?naming}}</div>
+</ng-container>
 
-  // instead of having the form type all inside our class
-  // form!: FormGroup<{
-  //   username: FormControl<string>;
-  //   firstName: FormControl<string>;
-  //   lastName: FormControl<string>;
-  //   age: FormControl<number | null>;
-  // }>
-  // We can have it like this in an interfaces folder
-  form!: UserForm;
+<button mat-raised-button color="primary" (click)="loadFromHttp()">
+  Load data
+</button>
 
-  constructor(private fb: FormBuilder) {
-    this.form = this.fb.nonNullable.group({
-      username: this.fb.nonNullable.control('manos'),
-      firstName: this.fb.nonNullable.control('Manolis'),
-      lastName: this.fb.nonNullable.control('Trungu'),
-      age: this.fb.nonNullable.control(33),
-      // Or like this if we dont want to use nonNullable
-      // age: this.fb.control(33, {initialValueIsDefault: true}),
-    });
-  }
-
-  ngOnInit() {
-    // this.username.patchValue(1);
-  }
-
-  // When hovering on each property you will see the type declared.
-  loadFromHttp() {
-    this.form.patchValue({
-      username: 'Robert',
-      lastName: 'Smith',
-      firstName: 'RobSmith',
-      age: 60,
-    });
-  }
-
-  resetForm() {
-    this.form.reset();
-  }
-}
+<button mat-raised-button color="accent" (click)="resetForm()">Reset</button>
